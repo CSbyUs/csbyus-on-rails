@@ -45,7 +45,7 @@ class HeaderAppBar extends React.Component {
             <Typography variant="title" color="inherit" noWrap>
               CSbyUs
             </Typography>
-            {/*<Button color="inherit" variant="title">Login</Button>*/}
+            <Button color="inherit" variant="title">Login</Button>
           </Toolbar>
         </AppBar>
       </div>
