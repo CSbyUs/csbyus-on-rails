@@ -17,15 +17,15 @@ class CurriculaHubLanding extends React.Component {
       const data =
           [
           {title:"Mobile Citizens", author:"CSbyUs",
-              content:"Mobile app development for middle school age students. Students work in teams to create a mobile app using App Lab. Frequency: 90mins per week for 10 weeks",
-              url: 'https://drive.google.com/drive/folders/1qP1H3qu0Vx6NTtcpUucDQxqFgXs_Mj50'},
+              content:"Engaging in the same processes as computer scientists at Google, middle students work in teams to build a mobile app that addresses a self-determined community need. Recommended frequency: 90 mins per week for 5 weeks",
+              url: 'https://docs.google.com/document/d/14HhURHo2u9WwidZ83Px70qQ8U8411ClAh--IZ4Oxz20/edit?usp=sharing'},
           {title:"Day of Data", author:"CSbyUs",
               content:"Introduction to the world of data science for middle school age students. In a full day, students and mentors work in teams through the data science process, answering research questions with real-world data.",
               url: 'https://docs.google.com/document/d/1i5TnWBwk2yvZpTetN5yb3ByLC2J2oVcdh71c4XSVHno/edit?usp=sharing'},
           {title:"CS First with Scratch", author:"Google",
-              content:"Intro to programming activities created by Google's CS First initiative for students ages 9-14",
+              content:"Introduction to programming activities created by Google's CS First initiative for students ages 9-14. Includes a variety of self-paced and self-guided learning tracks.",
               url: 'https://csfirst.withgoogle.com/c/cs-first/en/curriculum.html'},
-          {title:"Bootstrap:Data Science", author:"BootstrapWorld.org",
+          {title:"Bootstrap: Data Science", author:"BootstrapWorld.org",
               content:"From BootstrapWorld.org: In Bootstrap:Data Science, students form their own questions about the world around them, analyze data using multiple methods, and write a research paper about their findings. The module covers functions, looping and iteration, data visualization, linear regression, and more.",
               url: 'https://www.bootstrapworld.org/materials/spring2019/courses/data-science/en-us/'},
           {title:"Computer Science Principles", author:"Code.org",
@@ -39,7 +39,7 @@ class CurriculaHubLanding extends React.Component {
               url: 'https://scratch.mit.edu/ideas'},
           {title:"Teaching Privacy", author:"CSForAll Teachers",
               content:"From csforallteachers.org: The Teaching Privacy curriculum from the International Computer Science Institute and UC Berkeley has a full set of freely-available, classroom-tested lesson plans for teaching about how online privacy works. The lessons are aimed at high school and early undergrad; CSP-compatible but usable in any CS class (or other classes!).",
-              url: 'https://csforallteachers.org/resource/teaching-privacy-curriculum-0'}
+              url: 'https://csforallteachers.org/resource/teaching-privacy-curriculum'}
             ];
 
       const cards = data.map((card) =>
@@ -54,10 +54,10 @@ class CurriculaHubLanding extends React.Component {
         <React.Fragment>
           <div className={classes.layout2}>
 
-            <Paper className={classes.titleHeader}>
+            <Paper className={classes.curriculaTitleHeader}>
                 <div className={classes.courseName}>
                     <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                        CurriculaHub
+                        Curricula Hub
                     </Typography>
                     <Typography variant="h5" color="inherit" paragraph>
                         A one-stop platform for you to explore, adapt, add, and discuss open-source curricula
@@ -69,7 +69,7 @@ class CurriculaHubLanding extends React.Component {
               <Grid container spacing={24}>
                   {cards.map(card => (
                     // change xs setting to 12 for one card per row
-                     <Grid item xs={6} key={card.toString()}>
+                     <Grid item xs={12} sm={6} key={card.toString()}>
                          {card}
                      </Grid>
                    ))}
