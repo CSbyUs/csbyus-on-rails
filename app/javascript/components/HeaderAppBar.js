@@ -41,8 +41,9 @@ import {
 const theme = createMuiTheme({
   Typography: {
     fontFamily: [
-      'Avenir Next',
       'Gill Sans',
+      'Avenir Next',
+
     ]
   },
 });

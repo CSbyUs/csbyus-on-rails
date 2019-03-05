@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import { NavLink } from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import CurriculaHubLogo from '../../assets/images/curriculahub.png';
 
 
 var courseData = require('../../assets/data/coursesInfo.js');
@@ -36,12 +37,8 @@ class CurriculaHubLanding extends React.Component {
 
             <Paper className={classes.curriculaTitleHeader}>
                 <div className={classes.courseName}>
-                    <Typography component="h1" class={classes.newFont} variant="h3" color="inherit" gutterBottom>
-                        CurriculaHub
-                    </Typography>
-                    <Typography variant="h5" class={classes.newFont} color="inherit" paragraph>
-                        A one-stop platform for you to explore, adapt, add, and discuss open-source curricula
-                    </Typography>
+                    <img src = {CurriculaHubLogo} width="950" height="275" />
+
                 </div>
             </Paper>
 

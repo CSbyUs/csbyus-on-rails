@@ -201,7 +201,7 @@ const homeComponentStyles = theme => ({
     },
   },
   curriculaTitleHeader: {
-    backgroundColor: theme.palette.primary.green, // change color here
+    backgroundColor: theme.palette.secondary.light, // change color here
     color: theme.palette.common.white,
     marginBottom: theme.spacing.unit * 4,
     [theme.breakpoints.up('md')]: {
@@ -211,7 +211,7 @@ const homeComponentStyles = theme => ({
     },
   },
   newsTitleHeader: {
-    backgroundColor: theme.palette.primary.lightblue, // change color here
+    backgroundColor: theme.palette.secondary.light, // change color here
     // color: theme.palette.common.white,
     marginBottom: theme.spacing.unit * 4,
     [theme.breakpoints.up('md')]: {

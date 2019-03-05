@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import { NavLink } from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import InTheNewsLogo from '../../assets/images/inthenews.png';
 
 
 class InTheNews extends React.Component {
@@ -67,12 +67,7 @@ class InTheNews extends React.Component {
 
             <Paper className={classes.newsTitleHeader}>
                 <div className={classes.courseName}>
-                    <Typography component="h1" class={classes.newFont} variant="h3" color="inherit" gutterBottom>
-                        In the News
-                    </Typography>
-                    <Typography variant="h2" class={classes.newFont} color="inherit" paragraph>
-                        Explore the latest coverage of CSbyUs
-                    </Typography>
+                  <img src = {InTheNewsLogo} width="950" height="300" />
                 </div>
             </Paper>
 

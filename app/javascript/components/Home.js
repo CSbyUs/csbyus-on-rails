@@ -39,6 +39,11 @@ import BuildIcon from '@material-ui/icons/Build';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import DescriptionCard from './DescriptionCard';
 import ImpactCard from './ImpactCard';
+import Picture1 from '../../assets/images/picture1.jpg';
+import Picture2 from '../../assets/images/picture2.png';
+import Picture3 from '../../assets/images/picture3.jpg';
+import LargePic from '../../assets/images/largepicture.png';
+import LogoLarge from '../../assets/images/LogoLarge.png';
 import homeComponentStyles from "../../assets/javascripts/jss/components/homeComponentStyles.js";
 
 
@@ -95,8 +100,14 @@ function Home(props) {
     return (
       <React.Fragment>
           <div className={classes.homeLayout}>
+            <div className={classes.impactPicture}>
+              <img src={LogoLarge} class="img-center"/>
+              </div>
 
-            <HomeLogo />
+            <div className={classes.impactPicture}>
+              <img src={LargePic} class="img-center"/>
+            </div>
+
 
 
             {/* Hero unit */}
