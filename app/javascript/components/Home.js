@@ -42,9 +42,11 @@ import ImpactCard from './ImpactCard';
 import Picture1 from '../../assets/images/picture1.jpg';
 import Picture2 from '../../assets/images/picture2.png';
 import Picture3 from '../../assets/images/picture3.jpg';
+import PictureCard from './PictureCard';
 import LargePic from '../../assets/images/largepicture.png';
 import LogoLarge from '../../assets/images/LogoLarge.png';
 import homeComponentStyles from "../../assets/javascripts/jss/components/homeComponentStyles.js";
+import Hidden from '@material-ui/core/Hidden';
 
 
 const lightText = blue['A200'];
@@ -100,14 +102,38 @@ function Home(props) {
     return (
       <React.Fragment>
           <div className={classes.homeLayout}>
-            <div className={classes.impactPicture}>
-              <img src={LogoLarge} class="img-center"/>
+
+
+
+              <div className={classes.root}>
+                <Grid container spacing={24} className={classes.homeGrid} >
+                  <Grid item xs={12} sm={5}>
+                    <PictureCard imageLocation='https://farm8.staticflickr.com/7852/33581457368_cc616f7d13_h.jpg'/>
+                  </Grid>
+                  <Grid item xs={12} sm={5}>
+                    <PictureCard imageLocation='https://farm8.staticflickr.com/7814/47404820162_1b35beb733_h.jpg'/>
+                  </Grid>
+
+                </Grid>
               </div>
 
-            <div className={classes.impactPicture}>
-              <img src={LargePic} class="img-center"/>
-            </div>
-
+              <div className={classes.root}>
+                <Grid container spacing={24} className={classes.descriptionCardGrid} >
+                  <Hidden xsDown>
+                  <Grid item xs={12} sm={4}>
+                    <PictureCard imageLocation='https://farm8.staticflickr.com/7810/40491472383_c2d7f9b0fa_h.jpg'/>
+                  </Grid>
+                  </Hidden>
+                  <Grid item xs={12} sm={4}>
+                    <PictureCard imageLocation='https://farm8.staticflickr.com/7821/47404602872_b724212161_h.jpg'/>
+                  </Grid>
+                  <Hidden xsDown>
+                  <Grid item xs={12} sm={4}>
+                    <PictureCard imageLocation='https://farm8.staticflickr.com/7812/40491472323_d4bf9d21ea_k.jpg'/>
+                  </Grid>
+                  </Hidden>
+                </Grid>
+              </div>
 
 
             {/* Hero unit */}
@@ -117,7 +143,7 @@ function Home(props) {
                   {/* Embded video with react component */}
                   <Video link='https://www.youtube.com/watch?v=in1BfwaZ2rU'/>
                 </div>
-                <Typography variant="title" align="center" className={classes.videoTitle} color="textSecondary" paragraph gutterBottom>
+                <Typography variant="title" align="center" /*className={classes.videoTitle} */ color="textSecondary" paragraph gutterBottom>
                   We help teachers across the globe access, share and adapt lessons and courses in computer science and beyond
                 </Typography>
               </div>

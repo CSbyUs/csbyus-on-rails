@@ -343,11 +343,18 @@ const homeComponentStyles = theme => ({
   newsMedia: {
     height: 140,
   },
+  picMedia: {
+    height: 250,
+  },
   curriculumCard: {
     height: 250,
   },
   descriptionCardGrid: {
     padding: theme.spacing.unit * 2,
+    elevation: 5,
+  },
+  homeGrid: {
+    padding: theme.spacing.unit * 0.5,
     elevation: 5,
   },
   descriptionCard: {
