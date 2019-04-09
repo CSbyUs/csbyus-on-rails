@@ -18,6 +18,14 @@ var courseData = require('../../assets/data/coursesInfo.js');
 
 class CurriculaHubLanding extends React.Component {
 
+  handleDialogOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleDialogClose = () => {
+    this.setState({ open: false });
+  };
+
   getCourseData(){
     var coursesJsonArray = courseData.courses;
     return coursesJsonArray;
@@ -74,9 +82,32 @@ class CurriculaHubLanding extends React.Component {
             </div>
             {/* End Contribute */}
             </main>
-            <Fab size="large" color="primary" aria-label="Add" className={classes.fab} href="https://docs.google.com/forms/d/1h5JijmQKdxwCT1NkfPKXUl2zVZcMXx38Z8t9QYUgnEo/edit" target ="_blank">
+            <Fab size="large" color="primary" aria-label="Add" className={classes.fab} onClick={this.handleDialogOpen}>
               <AddIcon />
             </Fab>
+
+            <Dialog
+              open={this.state.open}
+              onClose={this.handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">{"What would you like to do?"}</DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  You are welcome to use our LessonBuilder tool or simply upload your own lesson plan!
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={this.handleClose} color="primary">
+                  Upload
+                </Button>
+                <Button onClick={this.handleClose} color="primary" autoFocus>
+                  Use LessonBuilder
+                </Button>
+              </DialogActions>
+            </Dialog>
+
           </div>
         </React.Fragment>
 
