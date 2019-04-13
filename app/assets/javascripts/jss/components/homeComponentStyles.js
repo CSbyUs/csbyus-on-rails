@@ -1,6 +1,5 @@
 import Background from '../../../images/HomePageBackground.JPG';
 
-
 const homeComponentStyles = theme => ({
   appBar: {
     position: 'fixed',
@@ -55,6 +54,9 @@ const homeComponentStyles = theme => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: 18,
     },
+  },
+  individualBioCard: {
+    flex: '1 0 auto',
   },
   blueFont: {
     fontFamily: theme.Typography.fontFamily[0],
@@ -200,6 +202,18 @@ const homeComponentStyles = theme => ({
       marginRight: 'auto',
     },
   },
+  postLayout: {
+    width: 'auto',
+    backgroundColor: theme.palette.primary.white,
+    marginLeft: theme.spacing.unit * 0,
+    marginRight: theme.spacing.unit * 0,
+    paddingTop: '1%',
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
   curriculaTitleHeader: {
     backgroundColor: theme.palette.primary.green, // change color here
     color: theme.palette.common.white,
@@ -294,7 +308,15 @@ const homeComponentStyles = theme => ({
     flexWrap: 'wrap',
     paddingBottom: `${theme.spacing.unit * 5}px`,
     paddingTop: `${theme.spacing.unit * 5}px`,
-
+  },
+  postRoot: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.primary.white,
+    flexWrap: 'wrap',
+    paddingBottom: `${theme.spacing.unit * 5}px`,
+    paddingTop: `${theme.spacing.unit * 1}px`,
+    marginLeft: theme.spacing.unit * 1,
+    marginRight: theme.spacing.unit * 1,
   },
   root3: {
     display: 'flex',
@@ -372,10 +394,51 @@ const homeComponentStyles = theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  bioMedia: {
+    width: 200,
+  },
+  bioCard: {
+    display: 'flex',
+    height: 350,
+  },
+  aboutCard: {
+    // height: 400,
+  },
+  bioCardDetails: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+  },
   videoTitle: {
     fontFamily: theme.Typography.fontFamily[0],
     marginTop: theme.spacing.unit * 3,
-  }
+  },
+  meetUsTitle: {
+    paddingTop: '4%',
+  },
+  bioMediaGrid: {
+    paddingTop: '4%',
+  },
+  postCardImage: {
+    width: 200,
+  },
+  postCard: {
+    display: 'flex',
+  },
+  postCardDetails: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+  },
+  postCardContent: {
+    flex: '1 0 auto',
+  },
+  fab: {
+    position: 'fixed',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2,
+  },
+
 });
 
 export default homeComponentStyles;

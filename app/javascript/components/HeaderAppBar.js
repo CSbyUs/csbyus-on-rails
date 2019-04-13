@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MainMenu from './MainMenu';
 import MenuDrawer from './MenuDrawer';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
@@ -28,7 +30,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
-
+import { NavHashLink as NavHashLink } from 'react-router-hash-link';
 import {
   Redirect,
   Link,
@@ -47,10 +49,24 @@ const theme = createMuiTheme({
   },
 });
 
+const options = [
+  { title: 'About', src: '/about' },
+  { title: 'Team', src: '/about/bios' },
+];
+
 class HeaderAppBar extends React.Component {
 
   state = {
     mobileOpen: false,
+    anchorEl: null,
+  };
+
+  handleAboutClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleAboutClose = () => {
+    this.setState({ anchorEl: null });
   };
 
   handleDrawerToggle = () => {
@@ -64,6 +80,9 @@ class HeaderAppBar extends React.Component {
   render () {
 
     const { classes } = this.props;
+    const { anchorEl } = this.state;
+    const open = Boolean(anchorEl);
+
     const colors = {
       color: '#FFFFFF',
       fontcolor: '#FFFFFF',
@@ -72,6 +91,11 @@ class HeaderAppBar extends React.Component {
     };
 
     const navLinkStyles = {
+      paddingLeft: theme.spacing.unit * 1,
+      paddingRight: theme.spacing.unit * 1,
+    };
+
+    const aboutLinkStyles = {
       paddingLeft: theme.spacing.unit * 1,
       paddingRight: theme.spacing.unit * 1,
     };
@@ -111,12 +135,18 @@ class HeaderAppBar extends React.Component {
               <ListItemText primary={'In the News'} />
             </ListItem>
           </NavLink>
-          <NavLink to={'/joinus'}>
+          <NavLink to={'/blog'}>
+            <ListItem className={classes.list} button key={'Blog'}>
+              <ListItemIcon> <BookmarkBorderIcon /> </ListItemIcon>
+              <ListItemText primary={'Blog'} />
+            </ListItem>
+           </NavLink>
+          <NavHashLink to={'/home#contact-form'}>
             <ListItem className={classes.list} button key={'Join Us'}>
               <ListItemIcon> <FavoriteIcon /> </ListItemIcon>
               <ListItemText primary={'Join Us'} />
             </ListItem>
-          </NavLink>
+          </NavHashLink>
         </List>
       </div>
     );
@@ -126,47 +156,115 @@ class HeaderAppBar extends React.Component {
     const sideList = (
       <div>
         <List>
+        {/*
           <NavLink className={classes.menuOptions} to={'/home'}>
             <ListItem button key={'Home'}>
-              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit" textAlign="center">Home</Typography>} />
+              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">Home</Typography>} />
             </ListItem>
           </NavLink>
+        */}
+          {/*
+            use this code to reenable dropdown for about us
+            <NavLink style={navLinkStyles} to={'/about'}>
+              <ListItem button key={'About'} onClick={this.handleAboutClick}>
+                <ListItemText style={colors} primary={<Typography variant="subtitle1" color="inherit">About Us</Typography>} />
+              </ListItem>
+            </NavLink>
+            */}
           <NavLink style={navLinkStyles} to={'/about'}>
-            <ListItem button key={'About'}>
+            <ListItem button key={'About'} >
               <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">About Us</Typography>} />
             </ListItem>
           </NavLink>
+          {/* below about us menu is hidden until triggered*/}
+          <Menu
+            id="long-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={this.handleAboutClose}
+            PaperProps={{
+              style: {
+                width: 150,
+              },
+            }}
+          >
+            {options.map(option => (
+              <NavLink to={option.src} style={aboutLinkStyles} >
+                <MenuItem key={option.src} onClick={this.handleAboutClose}>
+                  {option.title}
+                </MenuItem>
+              </NavLink>
+            ))}
+          </Menu>
+          {/* end about us dropdown */}
           <NavLink style={navLinkStyles} to={'/curriculahub'}>
             <ListItem button key={'CurriculaHub'}>
-              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">Curricula Hub</Typography>} />            </ListItem>
+              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">Curricula Hub</Typography>} />
+            </ListItem>
           </NavLink>
          <NavLink style={navLinkStyles} to={'/news'}>
             <ListItem button key={'In the News'}>
               <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit" noWrap>In the News</Typography>} />
             </ListItem>
           </NavLink>
-          <NavLink style={navLinkStyles} to={'/joinus'}>
+          <NavLink style={navLinkStyles} to={'/blog'}>
+             <ListItem button key={'Blog'}>
+               <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit" noWrap>Blog</Typography>} />
+             </ListItem>
+           </NavLink>
+          <NavHashLink style={navLinkStyles} to={'/home#contact-form'}>
             <ListItem button key={'Join Us'}>
               <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit" noWrap>Join Us</Typography>} />
             </ListItem>
-          </NavLink>
+          </NavHashLink>
         </List>
       </div>
     );
 
     return (
-      <AppBar className={classes.appBar}>
-        <Toolbar>
-          <NavLink to={'/home'}>
-          <Typography className={classes.mainTitleStyles} variant="title" color="inherit" noWrap>
-            CSbyUs
-          </Typography>
-          </NavLink>
-          <div className={classes.headerList}>
-            {sideList}
-          </div>
-        </Toolbar>
-      </AppBar>
+      <React.Fragment>
+        <AppBar className={classes.appBar}>
+          <Toolbar>
+            <NavLink to={'/home'}>
+              <Typography className={classes.mainTitleStyles} variant="title" color="inherit" noWrap>
+                CSbyUs
+              </Typography>
+            </NavLink>
+            <Hidden mdUp>
+              <IconButton
+                color="inherit" fontsize="large"
+                onClick={this.handleDrawerToggle}
+                className={classes.drawerMenuButton}
+              >
+                  <MenuIcon />
+              </IconButton>
+            </Hidden>
+            <Hidden smUp implementation="css">
+              <Drawer
+                className={classes.headerDrawer}
+                variant="temporary"
+                anchor='left'
+                open={this.state.mobileOpen}
+                onClose={this.handleDrawerToggle}
+              >
+                <div
+                  tabIndex={0}
+                  role="button"
+                  onClick={this.handleDrawerToggle}
+                  onKeyDown={this.handleDrawerToggle}
+                >
+                  {drawer}
+                </div>
+              </Drawer>
+            </Hidden>
+            <Hidden smDown>
+            <div className={classes.headerList}>
+              {sideList}
+            </div>
+            </Hidden>
+          </Toolbar>
+        </AppBar>
+      </React.Fragment>
     );
   }
 }

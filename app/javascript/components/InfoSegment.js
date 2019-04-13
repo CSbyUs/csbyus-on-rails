@@ -12,6 +12,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TeamCard from "./TeamCard"
+import Card from '@material-ui/core/Card';
+import {
+  Redirect,
+  Link,
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
+
 
 function generate(element) {
   return [0].map(value =>
@@ -22,6 +31,11 @@ function generate(element) {
 };
 
 class InfoSegment extends React.Component {
+
+  handleClick = () => {
+    console.log("Button clicked!");
+  };
+
   render () {
 
     const { classes } = this.props;
@@ -37,10 +51,11 @@ class InfoSegment extends React.Component {
 
     return (
       <React.Fragment>
-
+      <div className={classes.root2}>
+        <main className={classes.layout2}>
           {/* Mission / vision */}
 
-          <div className={classes.root3}>
+          <Paper className={classes.root3}>
             <Grid container spacing={24}>
               <Grid item xs={12} md={6}>
                 <Typography variant="h3" className={classes.title2}>
@@ -77,8 +92,8 @@ class InfoSegment extends React.Component {
                 </div>
               </Grid>
             </Grid>
+          </Paper>
 
-          </div>
           <Divider/>
           {/* End mission / vision */}
 
@@ -126,17 +141,29 @@ class InfoSegment extends React.Component {
 
               <Grid container spacing = {24} className={classes.descriptionCardGrid}>
                 {data.map(card => (
-                  <Grid item key={card.name} xs={12} md={4}>
+                  <Grid item key={card.name} style={{ textAlign: 'center' }} xs={12} md={4}>
                       <TeamCard name={card.name} content={card.content}/>
                   </Grid>
               ))}
               </Grid>
+               {/* Individual bios button here */}
+                    <div className={classes.heroButtons}>
+                      <Grid container spacing={16} justify="center" className={classes.heroButtons}>
+                        <Grid item>
+                          <NavLink to={'/about/bios'}>
+                            <Button variant="contained" className={classes.orangeFont} color="inherit" onClick={this.handleClick}>
+                              <b>Meet our team members</b>
+                            </Button>
+                          </NavLink>
+                        </Grid>
+                      </Grid>
+                    </div>
+               {/* End individual bios button  */}
+              </div>
 
 
-            </div>
-
-
-
+            </main>
+          </div>
       </React.Fragment>
     );
   }

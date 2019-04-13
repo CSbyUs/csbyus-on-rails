@@ -9,6 +9,9 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import { NavLink } from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+import AddIcon from '@material-ui/icons/Add';
 
 
 var courseData = require('../../assets/data/coursesInfo.js');
@@ -36,14 +39,16 @@ class CurriculaHubLanding extends React.Component {
 
             <Paper className={classes.curriculaTitleHeader}>
                 <div className={classes.courseName}>
-                    <Typography component="h1" class={classes.newFont} variant="h3" color="inherit" gutterBottom>
+                    <Typography component="h1" className={classes.newFont} variant="h3" color="inherit" gutterBottom>
                         CurriculaHub
                     </Typography>
-                    <Typography variant="h5" class={classes.newFont} color="inherit" paragraph>
+                    <Typography variant="h5" className={classes.newFont} color="inherit" paragraph>
                         A one-stop platform for you to explore, adapt, add, and discuss open-source curricula
                     </Typography>
                 </div>
             </Paper>
+
+
 
 
               <Grid container spacing={24}>
@@ -62,13 +67,16 @@ class CurriculaHubLanding extends React.Component {
                   </Typography>
                 <Typography variant="h4" class={classes.newFont} gutterBottom>
                   <p>
-                    Interested in contributing to the CurriculaHub community? We'd love to collaborate with you. Please fill out <NavLink to={'/joinus'}>this form</NavLink> and include the following in your message:
+                    Interested in contributing to the CurriculaHub community? We'd love to collaborate with you. To use our CSbyUs LessonBuilder, click on the blue button at the bottom right of your screen! Or you can fill out <NavLink to={'/joinus'}>this form</NavLink> and include the following in your message:
                     the resources you'd like to share or adapt and relevant links so we can view them. Our curriculum team will reach out to you via email after you submit the form as soon as possible.
                   </p>
                 </Typography>
             </div>
             {/* End Contribute */}
             </main>
+            <Fab size="large" color="primary" aria-label="Add" className={classes.fab} href="https://forms.gle/4SoLjikkKNwMm6cJ8" target ="_blank">
+              <AddIcon />
+            </Fab>
           </div>
         </React.Fragment>
 

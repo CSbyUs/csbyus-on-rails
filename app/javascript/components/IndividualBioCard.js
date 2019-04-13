@@ -9,7 +9,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 import homeComponentStyles from "../../assets/javascripts/jss/components/homeComponentStyles.js";
+import Hidden from '@material-ui/core/Hidden';
 
 
 class IndividualBioCard extends React.Component {
@@ -18,9 +20,29 @@ class IndividualBioCard extends React.Component {
 
     return (
       <React.Fragment>
-        <Card >
-          <CardActionArea className={classes.IndividualBioCard} href={this.props.url}  target="_blank">
-            <CardContent>
+        <Card className={classes.bioCard}>		
+        	<div className={classes.bioCardDetails}>
+           {/*} <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justify="center"
+
+            >
+              <Grid item className={classes.bioMediaGrid}>
+              <CardMedia
+                  className={classes.bioMedia}
+                  image={this.props.myImage}
+                />
+              </Grid>
+            </Grid>
+        */}
+        	{/*<CardMedia 
+        		className={classes.bioMedia}
+        		image={this.props.myImage}
+        		/> */}
+            <CardContent className={classes.postCardContent}>		
               <Typography variant="h5" component="h2">
                 {this.props.name}
               </Typography>
@@ -33,11 +55,24 @@ class IndividualBioCard extends React.Component {
               <Typography component="p">
                 {this.props.caption}
               </Typography>
-              <Typography className={this.props.email} color="textSecondary" gutterBottom>
-                {this.props.email}
-              </Typography>
+                <Typography className={this.props.email} color="textSecondary" gutterBottom>
+                  <a href={this.props.emailurl}>
+                    {this.props.email}
+                  </a>
+                </Typography>
+                <Typography className={this.props.email} color="textSecondary" gutterBottom>
+                  <a href={this.props.linkedinurl}>
+                    LinkedIn
+                  </a>
+                </Typography>
             </CardContent>
-          </CardActionArea>
+            </div>
+            <Hidden xsDown>
+            <CardMedia
+              className={classes.bioMedia}				
+              image={this.props.myImage}
+            />
+          </Hidden>
         </Card>
       </React.Fragment>
     );
@@ -49,6 +84,9 @@ IndividualBioCard.propTypes = {
   team: PropTypes.string,
   study: PropTypes.string,
   caption: PropTypes.string,
-  email: PropTypes.string
+  email: PropTypes.string,
+  myImage: PropTypes.string,
+  emailurl: PropTypes.string,
+  linkedinurl: PropTypes.string
 };
 export default withStyles(homeComponentStyles)(IndividualBioCard);
