@@ -12,11 +12,21 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import AddIcon from '@material-ui/icons/Add';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 var courseData = require('../../assets/data/coursesInfo.js');
 
 class CurriculaHubLanding extends React.Component {
+
+  constructor(props);
+  this.state = {
+
+  }
 
   handleDialogOpen = () => {
     this.setState({ open: true });
