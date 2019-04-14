@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: abc@example.com
+  password: fdafaHJO189
+  username: HelloTanner
+
+two:
+  email: fdalei@FSDO.com
+  password: 3yrewidfhFEBIURh33
+  username: HelloAmy
+
+three:
+  email: fjdkaljo@fjial.org
+  password: fdJFeoha8rety3
+  username: Hellosomeone
