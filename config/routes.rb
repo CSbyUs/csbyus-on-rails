@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users
   root 'pages#index'
 
-  get  '/signup',  to: 'users#new'
+  # get  '/signup',  to: 'users#new'
 
   namespace :api do
     namespace :v1 do
