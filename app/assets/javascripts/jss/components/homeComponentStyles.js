@@ -38,6 +38,7 @@ const homeComponentStyles = theme => ({
   newFont: {
     fontFamily: theme.Typography.fontFamily[0],
   },
+
   newFontDescription: {
     fontFamily: theme.Typography.fontFamily[0],
     fontSize: 15,
@@ -71,6 +72,11 @@ const homeComponentStyles = theme => ({
   whiteFont: {
     fontFamily: theme.Typography.fontFamily[0],
     color: theme.palette.primary.white,
+  },
+  greyFont: {
+    fontFamily: theme.Typography.fontFamily[0],
+    color: theme.palette.secondary.grey,
+    fontSize: 40,
   },
   whiteFontMission: {
     fontFamily: theme.Typography.fontFamily[0],

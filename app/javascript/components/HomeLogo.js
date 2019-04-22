@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import HomeLogoLayout from './HomeLogoLayout';
-import Logo from '../../assets/images/csbyuslogo.png';
+import Logo from '../../assets/images/LogoLarge.png';
 
 
 const backgroundImage =

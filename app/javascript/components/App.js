@@ -27,7 +27,7 @@ import IndividualBiosPage from './IndividualBiosPage'
 const theme = createMuiTheme({
   Typography: {
     fontFamily: [
-      'Gill Sans',
+      'Mukta',
       'Avenir Next',
 
 
@@ -53,6 +53,7 @@ const theme = createMuiTheme({
       // light: '#ffffff',
       main: '#30b271',
       darkgrey: '#182628',
+      grey: '#A7A7A7',
     },
   }
 });

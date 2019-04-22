@@ -38,6 +38,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import BuildIcon from '@material-ui/icons/Build';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import DescriptionCard from './DescriptionCard';
+import TextCard from './TextCard';
 import ImpactCard from './ImpactCard';
 import Picture1 from '../../assets/images/picture1.jpg';
 import Picture2 from '../../assets/images/picture2.png';
@@ -49,6 +50,7 @@ import homeComponentStyles from "../../assets/javascripts/jss/components/homeCom
 import Hidden from '@material-ui/core/Hidden';
 
 
+
 const lightText = blue['A200'];
 const cards = [1, 2, 3];
 const incubateText = "We're design thinkers. We start with inspiration for a new curriculum, prototype a solution, test it in North Carolina, and iterate until it's what students need.";
@@ -57,6 +59,7 @@ const supportText = "We're here for you. Teaching new curricula can be difficult
 const impactText1 = {title: "196", subtitle: "Public school students engaged", content: "Our teaching team partners with public schools and after-school programs to provide high quality computer science education to students. Currently based in Durham, we are expanding across North Carolina and beyond."};
 const impactText2 = {title: "100%", subtitle: "of students believe they can learn CS", content: "Our largest mark of success is an improvement in self-efficacy. Students who believe they have the ability to learn computer science are more likely to continue learning with confidence."};
 const impactText3 = {title: "22", subtitle: "Active educators", content: "Informed mentorship is our secret sauce. We find that our students develop meaningful relationships with their trained mentors, which combined with their technical experience, results in final products students are proud of."};
+const mottoText = "Teaching computer science like the future depends on it";
 
 function handleJoinClick() {
   console.log("clicked join us");
@@ -101,21 +104,28 @@ function Home(props) {
 
     return (
       <React.Fragment>
+
+
+
+
+
           <div className={classes.homeLayout}>
-
-
 
               <div className={classes.root}>
                 <Grid container spacing={24} className={classes.homeGrid} >
-                  <Grid item xs={12} sm={5}>
-                    <PictureCard imageLocation='https://farm8.staticflickr.com/7852/33581457368_cc616f7d13_h.jpg'/>
+                  <Grid item xs={12} sm={6}>
+                    <PictureCard imageLocation='https://live.staticflickr.com/65535/33786068268_1fc3ae239a_h.jpg'/>
                   </Grid>
-                  <Grid item xs={12} sm={5}>
-                    <PictureCard imageLocation='https://farm8.staticflickr.com/7814/47404820162_1b35beb733_h.jpg'/>
+
+                  <Grid item xs={12} sm={6}>
+                    <TextCard title={mottoText} />
                   </Grid>
+
 
                 </Grid>
               </div>
+
+
 
               <div className={classes.root}>
                 <Grid container spacing={24} className={classes.descriptionCardGrid} >
@@ -143,7 +153,7 @@ function Home(props) {
                   {/* Embded video with react component */}
                   <Video link='https://www.youtube.com/watch?v=in1BfwaZ2rU'/>
                 </div>
-                <Typography variant="title" align="center" /*className={classes.videoTitle} */ color="textSecondary" paragraph gutterBottom>
+                <Typography variant="title" align="center" className={classes.videoTitle} color="textSecondary" paragraph gutterBottom>
                   We help teachers across the globe access, share and adapt lessons and courses in computer science and beyond
                 </Typography>
               </div>
