@@ -26,11 +26,12 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import FaceIcon from '@material-ui/icons/Face';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
-
+import { NavHashLink as NavHashLink } from 'react-router-hash-link';
 import {
   Redirect,
   Link,
@@ -43,7 +44,7 @@ import {
 const theme = createMuiTheme({
   Typography: {
     fontFamily: [
-      'Avenir Next',
+      'Mukta',
       'Gill Sans',
     ]
   },
@@ -117,12 +118,6 @@ class HeaderAppBar extends React.Component {
               <ListItemText primary={'Home'} />
             </ListItem>
           </NavLink>
-          <NavLink to={'/about'}>
-            <ListItem className={classes.list} button key={'About'}>
-              <ListItemIcon> <InfoIcon /> </ListItemIcon>
-              <ListItemText primary={'About'} />
-            </ListItem>
-          </NavLink>
           <NavLink to={'/curriculahub'}>
             <ListItem className={classes.list} button key={'CurriculaHub'}>
               <ListItemIcon> <CloudDownloadIcon /> </ListItemIcon>
@@ -141,12 +136,24 @@ class HeaderAppBar extends React.Component {
               <ListItemText primary={'Blog'} />
             </ListItem>
            </NavLink>
-          <NavLink to={'/joinus'}>
+           <NavLink to={'/about'}>
+             <ListItem className={classes.list} button key={'About'}>
+               <ListItemIcon> <InfoIcon /> </ListItemIcon>
+               <ListItemText primary={'About Us'} />
+             </ListItem>
+           </NavLink>
+           <NavLink to={'/about/bios'}>
+             <ListItem className={classes.list} button key={'Team'}>
+               <ListItemIcon> <FaceIcon /> </ListItemIcon>
+               <ListItemText primary={'Team'} />
+             </ListItem>
+           </NavLink>
+          <NavHashLink to={'/home#contact-form'}>
             <ListItem className={classes.list} button key={'Join Us'}>
               <ListItemIcon> <FavoriteIcon /> </ListItemIcon>
               <ListItemText primary={'Join Us'} />
             </ListItem>
-          </NavLink>
+          </NavHashLink>
         </List>
       </div>
     );
@@ -156,11 +163,13 @@ class HeaderAppBar extends React.Component {
     const sideList = (
       <div>
         <List>
+        {/*
           <NavLink className={classes.menuOptions} to={'/home'}>
             <ListItem button key={'Home'}>
               <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">Home</Typography>} />
             </ListItem>
           </NavLink>
+        */}
           {/*
             use this code to reenable dropdown for about us
             <NavLink style={navLinkStyles} to={'/about'}>
@@ -169,11 +178,6 @@ class HeaderAppBar extends React.Component {
               </ListItem>
             </NavLink>
             */}
-          <NavLink style={navLinkStyles} to={'/about'}>
-            <ListItem button key={'About'} >
-              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">About Us</Typography>} />
-            </ListItem>
-          </NavLink>
           {/* below about us menu is hidden until triggered*/}
           <Menu
             id="long-menu"
@@ -197,7 +201,7 @@ class HeaderAppBar extends React.Component {
           {/* end about us dropdown */}
           <NavLink style={navLinkStyles} to={'/curriculahub'}>
             <ListItem button key={'CurriculaHub'}>
-              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">Curricula Hub</Typography>} />
+              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">CurriculaHub</Typography>} />
             </ListItem>
           </NavLink>
          <NavLink style={navLinkStyles} to={'/news'}>
@@ -209,12 +213,22 @@ class HeaderAppBar extends React.Component {
              <ListItem button key={'Blog'}>
                <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit" noWrap>Blog</Typography>} />
              </ListItem>
-           </NavLink>
-          <NavLink style={navLinkStyles} to={'/joinus'}>
+          </NavLink>
+          <NavLink style={navLinkStyles} to={'/about'}>
+            <ListItem button key={'About'} >
+              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">About Us</Typography>} />
+            </ListItem>
+          </NavLink>
+          <NavLink style={navLinkStyles} to={'/about/bios'}>
+            <ListItem button key={'Team'} >
+              <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit">Team</Typography>} />
+            </ListItem>
+          </NavLink>
+          <NavHashLink style={navLinkStyles} to={'/home#contact-form'}>
             <ListItem button key={'Join Us'}>
               <ListItemText style={colors} primary={<Typography variant="subtitle" color="inherit" noWrap>Join Us</Typography>} />
             </ListItem>
-          </NavLink>
+          </NavHashLink>
         </List>
       </div>
     );
