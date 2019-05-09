@@ -16,7 +16,7 @@ module.exports = {
             title:"Day of Data",
             author:"CSbyUs",
             content:"Introduction to the world of data science for middle school age students. In a full day, students and mentors work in teams through the data science process, answering research questions with real-world data.",
-            url: 'https://docs.google.com/document/d/1i5TnWBwk2yvZpTetN5yb3ByLC2J2oVcdh71c4XSVHno/edit?usp=sharing',
+            url: 'https://docs.google.com/document/d/1aUY-4dn6wJmKxrTrdmJ4lOrtncHwtBclumGPaZa2caw/edit?usp=sharing',
             },
         {
             id: "902",

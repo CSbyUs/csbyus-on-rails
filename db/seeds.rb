@@ -10,3 +10,8 @@ comments = ['Tanner', 'Emma', 'Austin']
 comments.each{|comment|
   Comment.create(author: comment, text: "My name is #{comment}.")
 }
+
+users = ['Cady Zhou', 'Tanner Johnson', 'Megan Phibbons']
+users.each{|user|
+  User.create(name: user, email: "#{user.delete(' ')}@gmail.com", password: 'ilovecats123')
+}
