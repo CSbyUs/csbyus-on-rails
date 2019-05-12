@@ -43,9 +43,9 @@ class UserSignup extends React.Component {
         this.handleUserSubmit = this.handleUserSubmit.bind(this)
     }
 
-    // componentDidMount() {
-    //     this.forceUpdate();
-    // }
+    componentDidMount() {
+        this.forceUpdate();
+    }
 
     handleNameChange = event => {
         this.setState({ name: event.target.value });
