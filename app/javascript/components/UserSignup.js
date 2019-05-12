@@ -3,6 +3,10 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import * as ReactDOM from "react-dom";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 
 const axios = require('axios');
 const styles = theme => ({
@@ -21,6 +25,7 @@ const styles = theme => ({
     menu: {
         width: 200,
     },
+
 });
 
 class UserSignup extends React.Component {
@@ -29,17 +34,33 @@ class UserSignup extends React.Component {
 
         super(props);
         this.state = {
-            id: "0",
-            name: "you",
-            password: "000000",
-            email: "nihaoya@csbyus.com"
+            id: "",
+            name: "",
+            password: "",
+            email: ""
         };
 
         this.handleUserSubmit = this.handleUserSubmit.bind(this)
     }
 
-    handleUserSubmit(){
+    // componentDidMount() {
+    //     this.forceUpdate();
+    // }
 
+    handleNameChange = event => {
+        this.setState({ name: event.target.value });
+    };
+
+    handleEmailChange = event => {
+        this.setState({ email: event.target.value });
+    };
+
+    handlePasswordChange = event => {
+        this.setState({ password: event.target.value });
+    };
+
+
+    handleUserSubmit(){
         axios.post('api/v1/users', {
             name: this.state.name,
             email: this.state.email,
@@ -59,48 +80,53 @@ class UserSignup extends React.Component {
 
         return (
             <React.Fragment>
-                    <form className={classes.container} noValidate autoComplete="off">
+                <div className={classes.container}>
 
-                        <TextField
-                            required
+                    <FormControl className={classes.formControl} variant="outlined">
+                        <InputLabel>
+                            Username
+                        </InputLabel>
+                        <OutlinedInput
                             id="name"
-                            label="Username"
-                            className={classes.textField}
-                            margin="normal"
-                            fullWidth
-                            variant="outlined"
+                            value={this.state.name}
+                            onChange={this.handleNameChange}
+                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
                         />
+                    </FormControl>
 
-                        <TextField
-                            required
+                    <FormControl className={classes.formControl} variant="outlined">
+                        <InputLabel>
+                            Email
+                        </InputLabel>
+                        <OutlinedInput
                             id="email"
-                            label="Email"
-                            className={classes.textField}
-                            margin="normal"
-                            fullWidth
-                            variant="outlined"
+                            value={this.state.email}
+                            onChange={this.handleEmailChange}
+                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
                         />
+                    </FormControl>
 
-                        <TextField
-                            required
+                    <FormControl className={classes.formControl} variant="outlined">
+                        <InputLabel>
+                            Password
+                        </InputLabel>
+                        <OutlinedInput
                             id="password"
-                            label="Password"
-                            className={classes.textField}
-                            fullWidth
-                            margin="normal"
-                            helperText="Some requirements of the password"
-                            variant="outlined"
+                            value={this.state.password}
+                            onChange={this.handlePasswordChange}
+                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
                         />
+                    </FormControl>
 
-                        <TextField
-                            required
-                            id="password_confirmation"
-                            label="Re-enter your password"
-                            className={classes.textField}
-                            margin="normal"
-                            fullWidth
-                            variant="outlined"
+                    <FormControl className={classes.formControl} variant="outlined">
+                        <InputLabel>
+                            Re-type your password
+                        </InputLabel>
+                        <OutlinedInput
+                            id="password_conf"
+                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
                         />
+                    </FormControl>
 
                         <Button
                             variant="contained"
@@ -109,7 +135,7 @@ class UserSignup extends React.Component {
                             Create my account
                         </Button>
 
-                    </form>
+                    </div>
             </React.Fragment>
         );
     }
