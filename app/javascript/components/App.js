@@ -84,7 +84,7 @@ class App extends React.Component {
                   <Route path="/blog/:id/:slug" component={PostContainer} />
                   <Route exact path="/about/bios" component={IndividualBiosPage} />
 
-                  <Route exact path="/signup" component={UserSignup}/>
+                  {/*<Route exact path="/signup" component={UserSignup}/>*/}
 
                   {/* catch-all redirects to home */}
                   <Route render={this._redirectToHome} />
