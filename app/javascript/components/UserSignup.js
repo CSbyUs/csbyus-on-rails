@@ -1,12 +1,15 @@
 import React from 'react';
-
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import * as ReactDOM from "react-dom";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Grid from '@material-ui/core/Grid';
+import PropTypes from "prop-types"
 
 const axios = require('axios');
 const styles = theme => ({
@@ -34,29 +37,21 @@ class UserSignup extends React.Component {
 
         super(props);
         this.state = {
-            id: "",
-            name: "",
-            password: "",
-            email: ""
+            name: '',
+            password: '',
+            password_conf: '',
+            email: '',
+            showPassword: false,
         };
 
         this.handleUserSubmit = this.handleUserSubmit.bind(this)
     }
 
-    componentDidMount() {
-        this.forceUpdate();
-    }
-
-    handleNameChange = event => {
-        this.setState({ name: event.target.value });
+    handleChange = prop => event => {
+        this.setState({ [prop]: event.target.value });
     };
-
-    handleEmailChange = event => {
-        this.setState({ email: event.target.value });
-    };
-
-    handlePasswordChange = event => {
-        this.setState({ password: event.target.value });
+    handleClickShowPassword = () => {
+        this.setState(state => ({ showPassword: !state.showPassword }));
     };
 
 
@@ -80,62 +75,83 @@ class UserSignup extends React.Component {
 
         return (
             <React.Fragment>
-                <div className={classes.container}>
+                <Grid container spacing={24}>
+                    <Grid item xs={12} sm={6}>
+                        <FormControl className={classes.formControl} variant="outlined">
+                            <InputLabel>
+                                Username
+                            </InputLabel>
+                            <OutlinedInput
+                                id="name"
+                                value={this.state.name}
+                                onChange={this.handleChange('name')}
+                                labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
+                            />
+                        </FormControl>
+                    </Grid>
 
-                    <FormControl className={classes.formControl} variant="outlined">
-                        <InputLabel>
-                            Username
-                        </InputLabel>
-                        <OutlinedInput
-                            id="name"
-                            value={this.state.name}
-                            onChange={this.handleNameChange}
-                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
-                        />
-                    </FormControl>
 
-                    <FormControl className={classes.formControl} variant="outlined">
-                        <InputLabel>
-                            Email
-                        </InputLabel>
-                        <OutlinedInput
-                            id="email"
-                            value={this.state.email}
-                            onChange={this.handleEmailChange}
-                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
-                        />
-                    </FormControl>
+                    <Grid item xs={12} sm={6}>
+                        <FormControl className={classes.formControl} variant="outlined">
+                            <InputLabel>
+                                Email
+                            </InputLabel>
+                            <OutlinedInput
+                                id="email"
+                                value={this.state.email}
+                                onChange={this.handleChange('email')}
+                                labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
+                            />
+                        </FormControl>
+                    </Grid>
 
-                    <FormControl className={classes.formControl} variant="outlined">
-                        <InputLabel>
-                            Password
-                        </InputLabel>
-                        <OutlinedInput
-                            id="password"
-                            value={this.state.password}
-                            onChange={this.handlePasswordChange}
-                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
-                        />
-                    </FormControl>
+                    <Grid item xs={12} sm={6}>
+                        <FormControl className={classes.formControl} variant="outlined">
+                            <InputLabel htmlFor="adornment-password">Password</InputLabel>
+                            <OutlinedInput
+                                id="password"
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                value={this.state.password}
+                                onChange={this.handleChange('password')}
+                                labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="Toggle password visibility"
+                                            onClick={this.handleClickShowPassword}
+                                        >
+                                            {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                            />
+                        </FormControl>
+                    </Grid>
 
-                    <FormControl className={classes.formControl} variant="outlined">
-                        <InputLabel>
-                            Re-type your password
-                        </InputLabel>
-                        <OutlinedInput
-                            id="password_conf"
-                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
-                        />
-                    </FormControl>
+                    <Grid item xs={12} sm={6}>
+                        <FormControl className={classes.formControl} variant="outlined">
+                            <InputLabel htmlFor="adornment-password">
+                                Re-type your password
+                            </InputLabel>
+                            <OutlinedInput
+                                id="password_conf"
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                value={this.state.password_conf}
+                                onChange={this.handleChange('password_conf')}
+                                labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
+                            />
+                        </FormControl>
+                    </Grid>
 
+                    <Grid item xs={12} sm={6}>
                         <Button
                             variant="contained"
                             onClick={this.handleUserSubmit()}
                         >
                             Create my account
                         </Button>
-
-                    </div>
+                    </Grid>
+                </Grid>
             </React.Fragment>
         );
     }
@@ -143,6 +159,7 @@ class UserSignup extends React.Component {
 
 
 UserSignup.propTypes = {
+    classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(UserSignup);
 
