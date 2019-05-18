@@ -23,10 +23,12 @@ var courseData = require('../../assets/data/coursesInfo.js');
 
 class CurriculaHubLanding extends React.Component {
 
-  constructor(props);
-  this.state = {
-
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+  };
+}
 
   handleDialogOpen = () => {
     this.setState({ open: true });
