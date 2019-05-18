@@ -10,8 +10,8 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from "prop-types"
+import axios from 'axios';
 
-const axios = require('axios');
 const styles = theme => ({
     container: {
         display: 'flex',
@@ -67,11 +67,10 @@ class UserSignup extends React.Component {
             .catch(function (error) {
                 console.log(error);
             })
-    }
+    };
 
     render () {
         const { classes } = this.props;
-        //TODO: update state info
 
         return (
             <React.Fragment>
@@ -146,7 +145,7 @@ class UserSignup extends React.Component {
                     <Grid item xs={12} sm={6}>
                         <Button
                             variant="contained"
-                            onClick={this.handleUserSubmit()}
+                            onClick={this.handleUserSubmit}
                         >
                             Create my account
                         </Button>
