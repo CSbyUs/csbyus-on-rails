@@ -1,12 +1,13 @@
 class Api::V1::UsersController < ApplicationController
 
   def index
-    render json: User.all
+    @users = User.order("created_at DESC")
+    render json: @users
   end
 
   def create
-    user = User.create(user_params)
-    render json: user
+    @user = User.create(user_params)
+    render json: @user
   end
 
   def destroy
@@ -30,7 +31,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
 

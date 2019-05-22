@@ -38,9 +38,9 @@ class UserSignup extends React.Component {
         super(props);
         this.state = {
             name: '',
+            email: '',
             password: '',
             password_conf: '',
-            email: '',
             showPassword: false,
         };
 
@@ -53,6 +53,11 @@ class UserSignup extends React.Component {
     handleClickShowPassword = () => {
         this.setState(state => ({ showPassword: !state.showPassword }));
     };
+
+    canBeSubmitted() {
+        const { name, email, password, password_conf } = this.state;
+        return email.length > 0 && password.length > 0 && name.length > 0 && password_conf.length > 0;
+    }
 
 
     handleUserSubmit(){
@@ -71,6 +76,7 @@ class UserSignup extends React.Component {
 
     render () {
         const { classes } = this.props;
+        const isEnabled = this.canBeSubmitted();
 
         return (
             <React.Fragment>
@@ -146,6 +152,7 @@ class UserSignup extends React.Component {
                         <Button
                             variant="contained"
                             onClick={this.handleUserSubmit}
+                            disabled={!isEnabled}
                         >
                             Create my account
                         </Button>
@@ -161,4 +168,3 @@ UserSignup.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(UserSignup);
-
