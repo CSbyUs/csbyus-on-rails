@@ -26,7 +26,7 @@ import Typography from '@material-ui/core/Typography';
 import PostContainer from './PostContainer';
 import MarkdownTest from './MarkdownTest';
 import UserSignup from './UserSignup';
-
+import UsersShow from './UsersShow';
 
 
 const theme = createMuiTheme({
@@ -84,7 +84,8 @@ class App extends React.Component {
                   <Route path="/blog/:id/:slug" component={PostContainer} />
                   <Route exact path="/about/bios" component={IndividualBiosPage} />
 
-                  {/*<Route exact path="/signup" component={UserSignup}/>*/}
+                  <Route exact path="/signup" component={UserSignup}/>
+                  <Route exact path="/allusers" component={UsersShow}/>
 
                   {/* catch-all redirects to home */}
                   <Route render={this._redirectToHome} />

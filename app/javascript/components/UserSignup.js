@@ -61,7 +61,7 @@ class UserSignup extends React.Component {
 
 
     handleUserSubmit(){
-        axios.post('api/v1/users', {
+        axios.post('api/v1/users.json', {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
