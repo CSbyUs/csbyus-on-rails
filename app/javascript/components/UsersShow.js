@@ -8,7 +8,21 @@ class UsersShow extends Component {
         this.state = {
             users: []
         }
+
+        this.removeUser = this.removeUser.bind(this);
     }
+
+    removeUser(id) {
+        axios.delete('api/v1/users/' + id)
+            .then(response => {
+                const users = this.state.users.filter(
+                    user => user.id !== id
+                )
+                this.setState({users})
+            })
+            .catch(error => console.log(error))
+    }
+
     componentDidMount() {
         axios.get('api/v1/users.json')
             .then(response => {
@@ -24,7 +38,7 @@ class UsersShow extends Component {
         return (
             <div className="users-show">
                 {this.state.users.map( user => {
-                    return (<UserProfile user={user} key={user.id} />)
+                    return (<UserProfile user={user} key={user.id} onRemoveUser={this.removeUser}/>)
                 })}
             </div>
         )
