@@ -191,7 +191,7 @@ function Home(props) {
 
 
             <div className={classes.impactPicture}>
-              <img src={'https://media.licdn.com/dms/image/C4E12AQFgBOhzn56Vjg/article-inline_image-shrink_1500_2232/0?e=1558569600&v=beta&t=DUVgjJhKEp5UVJ_uf-5rLOYkJ3BpkI1ElVaguC06zzg'} className="img-center"/>
+              <img src={'https://live.staticflickr.com/65535/48330865331_f7bc95ee1a_b.jpg'} className="img-center"/>
             </div>
 
             <div className={classes.root}>
