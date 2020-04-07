@@ -21,18 +21,18 @@ class CurriculaHub2 extends React.Component {
     const data =
           [ {
             agegroup: "Kindergarten to 2nd Grade",
-            url: "google.com"
+            url: "https://www.google.com/"
           },{
             agegroup:"3rd Grade to 5th Grade",
-            url: "google.com"
+            url: "https://www.google.com/"
           },{
             agegroup:"6th Grade to 8th Grade",
-            url:"google.com",
+            url:"https://www.google.com/",
            }
           ]
 
-    const cards = data.map((card) =>
-        <AgegroupCard agegroup = {card.agegroup}/>
+      const cards = data.map((card) =>
+          <AgegroupCard agegroup={card.agegroup} url={card.url}/>
           );
 
     return (
