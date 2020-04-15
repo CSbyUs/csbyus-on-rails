@@ -22,7 +22,7 @@ class AgegroupCard extends React.Component {
     return (
       <React.Fragment>
         <Card >
-          <CardActionArea href={this.props.url}  target="_blank">
+          <CardActionArea href={this.props.url}>
             <CardContent>
               <Typography variant="h5" className={classes.orangeFont} component="h2">
                 <b>{this.props.agegroup}</b>

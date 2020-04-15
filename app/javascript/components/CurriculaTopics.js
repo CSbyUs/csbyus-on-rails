@@ -14,20 +14,20 @@ import Icon from '@material-ui/core/Icon';
 import AddIcon from '@material-ui/icons/Add';
 
 
-class CurriculaHub2 extends React.Component {
+class CurriculaTopics extends React.Component {
 
   render () {
     const { classes } = this.props;
     const data =
           [ {
-            agegroup: "Kindergarten to 2nd Grade",
-            url: "\curriculatopics"
+            agegroup: "Algorithms",
+            url: "https://www.google.com/"
           },{
-            agegroup:"3rd Grade to 5th Grade",
-            url: "\curriculatopics"
+            agegroup:"Real World Problems",
+            url: "https://www.google.com/"
           },{
-            agegroup:"6th Grade to 8th Grade",
-            url:"\curriculatopics",
+            agegroup:"Data",
+            url:"https://www.google.com/",
            }
           ]
 
@@ -89,4 +89,4 @@ class CurriculaHub2 extends React.Component {
   }
 }
 
-export default withStyles(homeComponentStyles)(CurriculaHub2);
+export default withStyles(homeComponentStyles)(CurriculaTopics);
