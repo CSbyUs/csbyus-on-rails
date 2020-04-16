@@ -16,6 +16,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from '@material-ui/icons/Search';
+import Button from '@material-ui/core/Button';
 
 
 var curriculaData = require('../../assets/data/formattedData.js');
@@ -86,14 +87,17 @@ class CurriculaSearch extends React.Component {
                             )
                         }
 
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            className={classes.button}
-                            startIcon={<SearchIcon />}
-                        >
-                            Search
+                        <div>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                className={classes.button}
+                                //startIcon={<SearchIcon />}
+                            >
+                            <SearchIcon />
+                                Search
                         </Button>
+                        </div>
                      
 
                         {/* Contribute */}
