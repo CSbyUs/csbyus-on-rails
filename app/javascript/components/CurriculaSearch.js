@@ -14,6 +14,8 @@ import Icon from '@material-ui/core/Icon';
 import AddIcon from '@material-ui/icons/Add';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FlatButton from 'material-ui/FlatButton';
+import SearchIcon from '@material-ui/icons/Search';
 
 
 var curriculaData = require('../../assets/data/formattedData.js');
@@ -76,13 +78,6 @@ class CurriculaSearch extends React.Component {
                             </div>
                         </Paper>
 
-                        {/*
-                            data.map((checkbox) =>
-                            <div>    
-                                    <FormControlLabel control={<Checkbox name="test" />} label={checkbox.title} />
-                            </div>
-                            )  
-                        */}
                         {
                             this.state.checkboxbools.map((checkbox) =>
                                 <div>
@@ -90,6 +85,15 @@ class CurriculaSearch extends React.Component {
                                 </div>
                             )
                         }
+
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            className={classes.button}
+                            startIcon={<SearchIcon />}
+                        >
+                            Search
+                        </Button>
                      
 
                         {/* Contribute */}
