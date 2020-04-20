@@ -60,15 +60,20 @@ class CurriculaSearch extends React.Component {
     render() {
         const { classes } = this.props;
         const data = this.getCurriculaData();
-        if (this.state.checkboxbools.length == 0) {
-            data.forEach((standard) => {
-                this.state.checkboxbools.push({
-                    id: standard.id,
-                    description: standard.description,
-                    checked: false
+        const empty = (data.length == 0);
+        console.log(empty);
+        if (!empty) {
+            if (this.state.checkboxbools.length == 0) {
+                data.forEach((standard) => {
+                    this.state.checkboxbools.push({
+                        id: standard.id,
+                        description: standard.description,
+                        checked: false
+                    })
                 })
-            })
+            }
         }
+
         
 
 
@@ -89,24 +94,34 @@ class CurriculaSearch extends React.Component {
                             </div>
                         </Paper>
 
-                        {
-                            this.state.checkboxbools.map((checkbox) =>
-                                <div>
-                                    <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.id + ": " + checkbox.description} />
-                                </div>
-                            )
-                        }
+                        <div>
+                            {empty &&
+                                <h2>
+                                    We don't currently have any curricula for your criteria. Stay tuned for an update!
+                                </h2>
+                             }
+                         </div>
+
+                            {!empty && 
+                                this.state.checkboxbools.map((checkbox) =>
+                                    <div>
+                                        <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.id + ": " + checkbox.description} />
+                                    </div>
+                                )
+                            }
+                        
 
                         <div>
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                className={classes.button}
-                                //startIcon={<SearchIcon />}
-                            >
-                            <SearchIcon />
-                                Search
-                        </Button>
+                            {!empty &&
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.button}
+                                >
+                                    <SearchIcon />
+                                    Search
+                                </Button>
+                            }
                         </div>
                      
 
