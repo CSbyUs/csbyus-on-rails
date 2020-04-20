@@ -14,6 +14,7 @@ import CurriculaHubLanding from './CurriculaHubLanding'
 import CurriculaHub2 from './CurriculaHub2'
 import CurriculaTopics from './CurriculaTopics'
 import CurriculaSearch from './CurriculaSearch'
+import LessonPlans from './LessonPlans'
 import InTheNews from './InTheNews'
 import Footer from './Footer';
 import ContactForm from './ContactForm'
@@ -90,6 +91,7 @@ class App extends React.Component {
                   <Route path="/curricula/:agegroup" component={CurriculaTopics} />
                   <Route path="/curriculasearch/:age/:topic" component={CurriculaSearch} /> 
                             {/*<Route exact path="/curriculasearch" component={CurriculaSearch} />*/}
+                  <Route exact path="/searchresults" component={LessonPlans} />
                   {/* catch-all redirects to home */}
                   <Route render={this._redirectToHome} />
                 </Switch>

@@ -105,7 +105,7 @@ module.exports = {
                             standards: ["AP-03: Construct programs that include sequences.", 
                                         "AP-04: Construct programs using simple loops.", 
                                         "AP-05: Construct programs that implement conditionals.", 
-                                        "$AP-06: Decompose problems into smaller, manageable, subproblems to facilitate the program development process.", 
+                                        "AP-06: Decompose problems into smaller, manageable, subproblems to facilitate the program development process.", 
                                         "AP-10: Identify and debug errors in an algorithm or program to ensure it runs as intended."],
                             estimatedTime: 60,
                             materials: ["Computer per 2 Students", "Projector"],
