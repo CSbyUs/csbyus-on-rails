@@ -21,13 +21,13 @@ class CurriculaHub2 extends React.Component {
     const data =
           [ {
             agegroup: "Kindergarten to 2nd Grade",
-            url: "\curriculatopics"
+            url: "/curricula/ktoTwo"
           },{
             agegroup:"3rd Grade to 5th Grade",
-            url: "\curriculatopics"
+            url: "/curricula/threeToFive"
           },{
             agegroup:"6th Grade to 8th Grade",
-            url:"\curriculatopics",
+            url:"/curricula/sixToEight"
            }
           ]
 

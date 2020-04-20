@@ -20,19 +20,19 @@ class CurriculaTopics extends React.Component {
     const { classes } = this.props;
     const data =
           [ {
-            agegroup: "Algorithms",
-            url: "https://www.google.com/"
+            topic: "Algorithms",
+              url: "/curriculasearch/" + this.props.match.params.agegroup + "/algorithms"
           },{
-            agegroup:"Real World Problems",
-            url: "https://www.google.com/"
+            topic:"Real World Problems",
+            url: "/curriculasearch/" + this.props.match.params.agegroup + "/impactOfComputing"
           },{
-            agegroup:"Data",
-            url:"https://www.google.com/",
+            topic:"Data",
+            url: "/curriculasearch/" + this.props.match.params.agegroup + "/dataAnalysis"
            }
           ]
 
       const cards = data.map((card) =>
-          <AgegroupCard agegroup={card.agegroup} url={card.url}/>
+          <AgegroupCard agegroup={card.topic} url={card.url}/>
           );
 
     return (

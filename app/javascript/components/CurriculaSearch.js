@@ -41,7 +41,7 @@ class CurriculaSearch extends React.Component {
         this.setState({ checkboxbools: this.state.checkboxbools });
     }
     
-    getCurriculaData() {
+    getCurriculaData() { 
         var standardsJsonArray = standardsData.standards.gradeLevel.threeToFive.curriculum.algorithms;
         return standardsJsonArray;
     };
