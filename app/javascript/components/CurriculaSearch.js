@@ -114,9 +114,10 @@ class CurriculaSearch extends React.Component {
                         <div>
                             {!empty &&
                                 <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    className={classes.button}
+                                variant="contained"
+                                color="secondary"
+                                className={classes.button}
+                                href={"/results/" + this.props.match.params.age + "/" + this.props.match.params.topic}
                                 >
                                     <SearchIcon />
                                     Search

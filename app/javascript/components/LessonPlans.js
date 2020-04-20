@@ -19,8 +19,8 @@ var courseData = require('../../assets/data/formattedData.js');
 class LessonPlans extends React.Component {
 
   getCourseData(){
-    let age = "threeToFive";
-    let topic = "algorithms";
+    let age = this.props.match.params.age;
+    let topic = this.props.match.params.topic;
     var coursesJsonArray = courseData['lessonPlans']['gradeLevel'][age]['curriculum'][topic];
     return coursesJsonArray;
   };

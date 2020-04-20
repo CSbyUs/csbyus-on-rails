@@ -91,7 +91,8 @@ class App extends React.Component {
                   <Route path="/curricula/:agegroup" component={CurriculaTopics} />
                   <Route path="/curriculasearch/:age/:topic" component={CurriculaSearch} /> 
                             {/*<Route exact path="/curriculasearch" component={CurriculaSearch} />*/}
-                  <Route exact path="/searchresults" component={LessonPlans} />
+                            {/*<Route exact path="/searchresults" component={LessonPlans} />*/}
+                  <Route path="/results/:age/:topic" component={LessonPlans} />
                   {/* catch-all redirects to home */}
                   <Route render={this._redirectToHome} />
                 </Switch>
