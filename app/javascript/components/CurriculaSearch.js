@@ -17,6 +17,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FlatButton from 'material-ui/FlatButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
+import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
 
 
 var standardsData = require('../../assets/data/standardsData.js');
@@ -31,6 +39,7 @@ class CurriculaSearch extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
+    
     handleInputChange(event) {
         for (const each of this.state.checkboxbools) {
             if (each.id == event.target.value) {
@@ -41,8 +50,10 @@ class CurriculaSearch extends React.Component {
         this.setState({ checkboxbools: this.state.checkboxbools });
     }
     
-    getCurriculaData() { 
-        var standardsJsonArray = standardsData.standards.gradeLevel.threeToFive.curriculum.algorithms;
+    getCurriculaData() {
+        let age = this.props.match.params.age;
+        let topic = this.props.match.params.topic;
+        var standardsJsonArray = standardsData['standards']['gradeLevel'][age]['curriculum'][topic];
         return standardsJsonArray;
     };
 
