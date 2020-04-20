@@ -19,7 +19,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 
 
-var curriculaData = require('../../assets/data/formattedData.js');
+var standardsData = require('../../assets/data/standardsData.js');
 
 class CurriculaSearch extends React.Component {
 
@@ -32,9 +32,8 @@ class CurriculaSearch extends React.Component {
     }
 
     handleInputChange(event) {
-        console.log("value:" + event.target.value + " checked: " + event.target.checked);
         for (const each of this.state.checkboxbools) {
-            if (each.standards == event.target.value) {
+            if (each.id == event.target.value) {
                 each.checked = event.target.checked;
             }
         }
@@ -43,18 +42,18 @@ class CurriculaSearch extends React.Component {
     }
     
     getCurriculaData() {
-        var lessonplansJsonArray = curriculaData.lessonPlans.gradeLevel.threeToFive.curriculum.algorithms;
-        return lessonplansJsonArray;
+        var standardsJsonArray = standardsData.standards.gradeLevel.threeToFive.curriculum.algorithms;
+        return standardsJsonArray;
     };
 
     render() {
         const { classes } = this.props;
         const data = this.getCurriculaData();
         if (this.state.checkboxbools.length == 0) {
-            data.forEach((lessonPlan) => {
-                console.log("here");
+            data.forEach((standard) => {
                 this.state.checkboxbools.push({
-                    standards: lessonPlan.title,
+                    id: standard.id,
+                    description: standard.description,
                     checked: false
                 })
             })
@@ -82,7 +81,7 @@ class CurriculaSearch extends React.Component {
                         {
                             this.state.checkboxbools.map((checkbox) =>
                                 <div>
-                                    <FormControlLabel control={<Checkbox value={checkbox.standards} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.standards} />
+                                    <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.id + ": " + checkbox.description} />
                                 </div>
                             )
                         }
