@@ -26,6 +26,7 @@ class LessonPlans extends React.Component {
   };
 
   render () {
+    console.log(this.props.location.state)
     const { classes } = this.props;
     const data = this.getCourseData();
     const cards = data.map((card) =>
