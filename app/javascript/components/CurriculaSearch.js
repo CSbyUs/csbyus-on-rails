@@ -71,13 +71,6 @@ class CurriculaSearch extends React.Component {
                 })
             }
         }
-        {/*const LinkData = <Link to={{
-            pathname: "/results/" + this.props.match.params.age + "/" + this.props.match.params.topic,
-            state: {
-                checkboxdata: []
-            }
-        }}/> */}
-
         
 
 
@@ -114,35 +107,21 @@ class CurriculaSearch extends React.Component {
                                 )
                             }
                         
-                        {/*
-                        <div>
-                            {!empty &&
-                                <Button
-                                variant="contained"
-                                color="secondary"
-                                className={classes.button}
-                                href={"/results/" + this.props.match.params.age + "/" + this.props.match.params.topic}
-                                //component={LinkData}
-                                >
-                                    <SearchIcon />
-                                    Search
-                                </Button>
-                            }
-                        </div>
-                      */}
 
                         <div>
-                            <Link to={{
-                                pathname: "/results/" + this.props.match.params.age + "/" + this.props.match.params.topic,
-                                state: {
-                                    checkboxdata: this.state.checkboxbools
-                                }
-                            }}>
-                                <Button variant="contained" color="secondary" className={classes.button}>
-                                    <SearchIcon />
-                                    Search
+                            {!empty &&
+                                <Link to={{
+                                    pathname: "/results/" + this.props.match.params.age + "/" + this.props.match.params.topic,
+                                    state: {
+                                        checkboxdata: this.state.checkboxbools
+                                    }
+                                }}>
+                                    <Button variant="contained" color="secondary" className={classes.button}>
+                                        <SearchIcon />
+                                        Search
                                 </Button>
-                            </Link>
+                                </Link>
+                            }
                         </div>
 
                         {/* Contribute */}

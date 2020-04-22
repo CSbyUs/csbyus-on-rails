@@ -19,14 +19,46 @@ var courseData = require('../../assets/data/formattedData.js');
 class LessonPlans extends React.Component {
 
   getCourseData(){
+    let checkboxes = this.props.location.state.checkboxdata;
+    const searchCriteria = [];
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            searchCriteria.push({
+                id: checkbox.id,
+                description: checkbox.description,
+                standard: checkbox.id + ": " + checkbox.description
+              })
+          }
+    });
     let age = this.props.match.params.age;
     let topic = this.props.match.params.topic;
-    var coursesJsonArray = courseData['lessonPlans']['gradeLevel'][age]['curriculum'][topic];
-    return coursesJsonArray;
+    var data = courseData['lessonPlans']['gradeLevel'][age]['curriculum'][topic];
+    var coursesJsonArray = [];
+    var j;
+    data.forEach((lessonPlan) => {
+        console.log(searchCriteria.length)
+        for (j = 0; j < searchCriteria.length; j++) {
+            if (lessonPlan.standards.includes(searchCriteria[j].standard)) {
+                coursesJsonArray.push({
+                    id: lessonPlan.id,
+                    title: lessonPlan.title,
+                    author: lessonPlan.author,
+                    description: lessonPlan.description,
+                    standards: lessonPlan.standards,
+                    estimatedTime: lessonPlan.estimatedTime,
+                    materials: lessonPlan.materials,
+                    courseUrl: lessonPlan.courseUrl
+
+                })
+                break;
+            }
+        }
+
+      })
+  return coursesJsonArray;
   };
 
   render () {
-    console.log(this.props.location.state)
     const { classes } = this.props;
     const data = this.getCourseData();
     const cards = data.map((card) =>
