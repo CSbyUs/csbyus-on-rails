@@ -32,13 +32,15 @@ class LessonPlans extends React.Component {
     });
     let age = this.props.match.params.age;
     let topic = this.props.match.params.topic;
-    var data = courseData['lessonPlans']['gradeLevel'][age]['curriculum'][topic];
+    var searchData = courseData['lessonPlans']['gradeLevel'][age]['curriculum'][topic];
     var coursesJsonArray = [];
-    var j;
-    data.forEach((lessonPlan) => {
-        console.log(searchCriteria.length)
+    var i,j;
+    searchData.forEach((lessonPlan) => {
+        for (i = 0; i < lessonPlan.standards.length; i++) {
+            lessonPlan['standards'][i] = lessonPlan['standards'][i].substring(0,5)
+        }
         for (j = 0; j < searchCriteria.length; j++) {
-            if (lessonPlan.standards.includes(searchCriteria[j].standard)) {
+            if (lessonPlan.standards.includes(searchCriteria[j].id)) {
                 coursesJsonArray.push({
                     id: lessonPlan.id,
                     title: lessonPlan.title,
@@ -62,7 +64,7 @@ class LessonPlans extends React.Component {
     const { classes } = this.props;
     const data = this.getCourseData();
     const cards = data.map((card) =>
-        <CurriculumCard title = {card.title} author = {card.author}
+        <CurriculumCard title = {card.title} author = {"Standard(s): " + card.standards}
             content={card.description} url={card.courseUrl}/>
           );
 
