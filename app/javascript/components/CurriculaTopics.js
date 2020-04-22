@@ -1,6 +1,7 @@
 ﻿import React from "react"
 import PropTypes from "prop-types"
 import AgegroupCard from "./AgegroupCard"
+import TopicCard from "./TopicCard"
 import { withStyles } from '@material-ui/core/styles'
 import homeComponentStyles from "../../assets/javascripts/jss/components/homeComponentStyles.js";
 import Paper from '@material-ui/core/Paper';
@@ -32,7 +33,7 @@ class CurriculaTopics extends React.Component {
           ]
 
       const cards = data.map((card) =>
-          <AgegroupCard agegroup={card.topic} url={card.url}/>
+          <TopicCard topic={card.topic} url={card.url}/>
           );
 
     return (
@@ -48,6 +49,9 @@ class CurriculaTopics extends React.Component {
                     </Typography>
                     <Typography variant="h5" className={classes.newFont} color="inherit" paragraph>
                         A one-stop platform for you to explore, adapt, add, and discuss open-source curricula
+                    </Typography>
+                    <Typography variant="subtitle1" className={classes.newFont} color="inherit" paragraph>
+                        Pick a grade level and then a topic to find curricula that suit your needs!
                     </Typography>
                 </div>
             </Paper>
@@ -66,13 +70,10 @@ class CurriculaTopics extends React.Component {
 
             {/* Contribute */}
             <div className={classes.root2}>
-                  <Typography variant="h3" class={classes.newFont} align="left" color="textPrimary" gutterBottom>
-                    Contribute to CurriculaHub
-                  </Typography>
-                <Typography variant="h4" class={classes.newFont} gutterBottom>
+                <Typography variant="caption" class={classes.newFont} gutterBottom>
                   <p>
-                    Interested in contributing to the CurriculaHub community? We'd love to collaborate with you. To use our CSbyUs LessonBuilder, click on the blue button at the bottom right of your screen! Or you can fill out <NavHashLink to={'/home#contact-form'}>this form</NavHashLink> and include the following in your message:
-                    the resources you'd like to share or adapt and relevant links so we can view them. Our curriculum team will reach out to you via email after you submit the form as soon as possible.
+                    Interested in contributing to the CurriculaHub community? We'd love to collaborate with you. To use our CSbyUs LessonBuilder, click on the blue plus sign at the bottom right of your screen! Or you can fill out <NavHashLink to={'/home#contact-form'}>this form</NavHashLink> and include the following in your message:
+                    the resources you'd like to share or adapt and relevant links so we can view them. Our curriculum team will reach out to you via email as soon as possible after you submit the form.
                   </p>
                 </Typography>
             </div>

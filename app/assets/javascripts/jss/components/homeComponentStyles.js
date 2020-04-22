@@ -448,7 +448,18 @@ const homeComponentStyles = theme => ({
     position: 'fixed',
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 2,
-  },
+   },
+   agegroupCard: {
+       display: 'flex',
+       height: 200,
+       justifyContent: 'center',
+    },
+   topicCard: {
+      display: 'flex',
+      height: 200,
+      backgroundColor: theme.palette.primary.lightblue,
+      justifyContent: 'center',
+   },
 
 });
 

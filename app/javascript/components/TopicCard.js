@@ -15,28 +15,28 @@ import { NavHashLink as NavHashLink } from 'react-router-hash-link';
 
 
 
-class AgegroupCard extends React.Component {
-  render () {
-    const { classes } = this.props;
+class TopicCard extends React.Component {
+    render() {
+        const { classes } = this.props;
 
-    return (
-      <React.Fragment>
-        <Card className={classes.agegroupCard}>
-          <CardActionArea href={this.props.url}>
-            <CardContent>
-              <Typography variant="h5" className={classes.orangeFont} component="h2" align="center">
-                <b>{this.props.agegroup}</b>
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </React.Fragment>
-    );
-  }
+        return (
+            <React.Fragment>
+                <Card className={classes.topicCard}>
+                    <CardActionArea href={this.props.url}>
+                        <CardContent>
+                            <Typography variant="h5" className={classes.whiteFont} component="h2" align="center">
+                                <b>{this.props.topic}</b>
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            </React.Fragment>
+        );
+    }
 }
 
-AgegroupCard.propTypes = {
-    agegroup: PropTypes.string,
+TopicCard.propTypes = {
+    topic: PropTypes.string,
     url: PropTypes.string
 };
-export default withStyles(homeComponentStyles)(AgegroupCard);
+export default withStyles(homeComponentStyles)(TopicCard);

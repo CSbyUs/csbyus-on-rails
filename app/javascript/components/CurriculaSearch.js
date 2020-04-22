@@ -126,14 +126,11 @@ class CurriculaSearch extends React.Component {
 
                         {/* Contribute */}
                         <div className={classes.root2}>
-                            <Typography variant="h3" class={classes.newFont} align="left" color="textPrimary" gutterBottom>
-                                Contribute to CurriculaHub
-                  </Typography>
-                            <Typography variant="h4" class={classes.newFont} gutterBottom>
+                            <Typography variant="caption" class={classes.newFont} gutterBottom>
                                 <p>
-                                    Interested in contributing to the CurriculaHub community? We'd love to collaborate with you. To use our CSbyUs LessonBuilder, click on the blue button at the bottom right of your screen! Or you can fill out <NavHashLink to={'/home#contact-form'}>this form</NavHashLink> and include the following in your message:
-                                    the resources you'd like to share or adapt and relevant links so we can view them. Our curriculum team will reach out to you via email after you submit the form as soon as possible.
-                  </p>
+                                    Interested in contributing to the CurriculaHub community? We'd love to collaborate with you. To use our CSbyUs LessonBuilder, click on the blue plus sign at the bottom right of your screen! Or you can fill out <NavHashLink to={'/home#contact-form'}>this form</NavHashLink> and include the following in your message:
+                   the resources you'd like to share or adapt and relevant links so we can view them. Our curriculum team will reach out to you via email as soon as possible after you submit the form.
+                                 </p>
                             </Typography>
                         </div>
                         {/* End Contribute */}
