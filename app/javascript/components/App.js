@@ -79,14 +79,15 @@ class App extends React.Component {
                   <Route exact path="/home" component={Home} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/joinus" component={ContactForm} />
-                  <Route exact path="/curriculahub" component={CurriculaHubLanding} />
+                            {/*<Route exact path="/curriculahub" component={CurriculaHubLanding} /> */}
+                  <Route exact path="/curriculahub" component={CurriculaHub2} />
                   <Route exact path="/overview" component={CourseOverview} />
                   <Route exact path="/version" component={CourseVersionsPage} />
                   <Route exact path="/news" component={InTheNews} />
                   <Route exact path="/blog" component={Blog} />
                   <Route path="/blog/:id/:slug" component={PostContainer} />
                   <Route exact path="/about/bios" component={IndividualBiosPage} />
-                  <Route exact path="/curriculahub2.0" component={CurriculaHub2} />
+                            {/*<Route exact path="/curriculahub2.0" component={CurriculaHub2} />*/}
                             {/*<Route exact path="/curriculatopics" component={CurriculaTopics} />*/}
                   <Route path="/curricula/:agegroup" component={CurriculaTopics} />
                   <Route path="/curriculasearch/:age/:topic" component={CurriculaSearch} /> 
