@@ -39,6 +39,7 @@ import BuildIcon from '@material-ui/icons/Build';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import DescriptionCard from './DescriptionCard';
 import ImpactCard from './ImpactCard';
+import ImpactPicture from '../../assets/images/ImpactChart.png';
 import homeComponentStyles from "../../assets/javascripts/jss/components/homeComponentStyles.js";
 import {
   Redirect,
@@ -191,7 +192,7 @@ function Home(props) {
 
 
             <div className={classes.impactPicture}>
-              <img src={'https://live.staticflickr.com/65535/48330865331_f7bc95ee1a_b.jpg'} className="img-center"/>
+              <img src={ImpactPicture} className="img-center"/>
             </div>
 
             <div className={classes.root}>

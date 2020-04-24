@@ -2,12 +2,14 @@
   "name": "react-rails-example-app",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.9.4",
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^2.0.2",
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "^5.0.1",
     "@types/react": "^16.4.10",
     "@types/react-dom": "^16.0.7",
     "add": "^2.0.6",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-react": "^6.24.1",
     "faker": "^4.1.0",
     "html-loader": "^0.5.5",
@@ -16,9 +18,9 @@
     "marked": "^0.6.1",
     "material-ui": "^0.20.2",
     "moment": "^2.22.2",
-    "prop-types": "^15.6.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-markdown": "^4.0.6",
     "react-material-markdown-element": "^1.0.0",
     "react-player": "^1.6.4",
@@ -27,7 +29,7 @@
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.1",
     "react-waypoint": "^8.0.3",
-    "react_ujs": "^2.4.4",
+    "react_ujs": "^2.6.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -39,6 +41,10 @@
     "webpack-cli": "^3.1.2"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-dev-server": "^3.10.3"
   }
 }

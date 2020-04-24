@@ -11,6 +11,10 @@ import About from './About'
 import Blog from './Blog'
 import IndividualBiosPage from './IndividualBiosPage'
 import CurriculaHubLanding from './CurriculaHubLanding'
+import CurriculaHub2 from './CurriculaHub2'
+import CurriculaTopics from './CurriculaTopics'
+import CurriculaSearch from './CurriculaSearch'
+import LessonPlans from './LessonPlans'
 import InTheNews from './InTheNews'
 import Footer from './Footer';
 import ContactForm from './ContactForm'
@@ -75,13 +79,16 @@ class App extends React.Component {
                   <Route exact path="/home" component={Home} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/joinus" component={ContactForm} />
-                  <Route exact path="/curriculahub" component={CurriculaHubLanding} />
+                  <Route exact path="/curriculahub" component={CurriculaHub2} /> 
                   <Route exact path="/overview" component={CourseOverview} />
                   <Route exact path="/version" component={CourseVersionsPage} />
                   <Route exact path="/news" component={InTheNews} />
                   <Route exact path="/blog" component={Blog} />
                   <Route path="/blog/:id/:slug" component={PostContainer} />
                   <Route exact path="/about/bios" component={IndividualBiosPage} />
+                  <Route path="/curricula/:agegroup" component={CurriculaTopics} />
+                  <Route path="/curriculasearch/:age/:topic" component={CurriculaSearch} /> 
+                  <Route path="/results/:age/:topic" component={LessonPlans} />
                   {/* catch-all redirects to home */}
                   <Route render={this._redirectToHome} />
                 </Switch>
