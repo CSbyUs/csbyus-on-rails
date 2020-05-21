@@ -1,6 +1,6 @@
 ﻿import React from "react"
 import PropTypes from "prop-types"
-import CurriculumCard from "./CurriculumCard"
+import UpdatedCurriculumCard from "./UpdatedCurriculumCard"
 import { withStyles } from '@material-ui/core/styles'
 import homeComponentStyles from "../../assets/javascripts/jss/components/homeComponentStyles.js";
 import Paper from '@material-ui/core/Paper';
@@ -64,7 +64,7 @@ class LessonPlans extends React.Component {
     const { classes } = this.props;
     const data = this.getCourseData();
     const cards = data.map((card) =>
-        <CurriculumCard title = {card.title} author = {"Standard(s): " + card.standards}
+        <UpdatedCurriculumCard title={card.title} standards={"Standard(s): " + card.standards} time={"Estimated time: " + card.estimatedTime + " minutes"}
             content={card.description} url={card.courseUrl}/>
           );
 
