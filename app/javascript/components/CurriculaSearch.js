@@ -42,7 +42,7 @@ class CurriculaSearch extends React.Component {
     
     handleInputChange(event) {
         for (const each of this.state.checkboxbools) {
-            if (each.id == event.target.value) {
+            if (each.id == event.target.value || event.target.value == "selectall") {
                 each.checked = event.target.checked;
             }
         }
