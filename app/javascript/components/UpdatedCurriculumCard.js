@@ -30,7 +30,7 @@ class UpdatedCurriculumCard extends React.Component {
               <Typography variant="subtitle1" className={this.props.title} className={classes.newFont} color="textSecondary" gutterBottom>
                 {this.props.time}
               </Typography>
-              <Typography variant="subtitle1" component="p" className={classes.newFont} >
+              <Typography variant="body1" component="p" className={classes.newFont} >
                 {this.props.content}
               </Typography>
             </CardContent>
