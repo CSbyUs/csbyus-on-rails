@@ -65,9 +65,14 @@ class CurriculaSearch extends React.Component {
                 data.forEach((standard) => {
                     this.state.checkboxbools.push({
                         id: standard.id,
-                        description: standard.description,
+                        description: standard.id + ": " + standard.description,
                         checked: false
                     })
+                })
+                this.state.checkboxbools.push({
+                    id: "selectall",
+                    description: "Select all of the above",
+                    checked: false
                 })
             }
         }
@@ -102,7 +107,7 @@ class CurriculaSearch extends React.Component {
                             {!empty && 
                                 this.state.checkboxbools.map((checkbox) =>
                                     <div>
-                                        <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.id + ": " + checkbox.description} />
+                                        <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.description} />
                                     </div>
                                 )
                             }
