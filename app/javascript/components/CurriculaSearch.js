@@ -37,6 +37,7 @@ class CurriculaSearch extends React.Component {
             checkboxbools: []
         }
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleOnClick = this.handleOnClick.bind(this);
     }
 
     
@@ -47,6 +48,17 @@ class CurriculaSearch extends React.Component {
             }
         }
         this.setState({ checkboxbools: this.state.checkboxbools });
+    }
+
+    handleOnClick(event) {
+        for (const box of this.state.checkboxbools) {
+            if (box.checked) {
+                return;
+            }
+        }
+        alert("Please select at least one checkbox. If no preference, select the select all checkbox.");
+        event.preventDefault();
+        return false;
     }
     
     getCurriculaData() {
@@ -120,8 +132,8 @@ class CurriculaSearch extends React.Component {
                                     state: {
                                         checkboxdata: this.state.checkboxbools
                                     }
-                                }}>
-                                    <Button variant="contained" color="secondary" className={classes.button}>
+                            }} onClick={this.handleOnClick}>
+                                <Button variant="contained" color="secondary" className={classes.button}>
                                         <SearchIcon />
                                         Search
                                 </Button>
