@@ -90,8 +90,8 @@ class LessonPlans extends React.Component {
 
               <Grid container spacing={24}>
                   {cards.map(card => (
-                    // change xs setting to 12 for one card per row
-                     <Grid item xs={12} sm={6} key={card.toString()}>
+                    // change xs setting to 12 and sm to 6 for multiple cards per row
+                     <Grid item xs={12} key={card.toString()}>
                          {card}
                      </Grid>
                    ))}
