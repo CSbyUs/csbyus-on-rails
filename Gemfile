@@ -10,10 +10,9 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
+
 # Use pg for remote development
 gem 'pg'
-# Use sqlite3 for local development
-#gem 'sqlite3', '~> 1.3.13'
 
 gem 'figaro'
 # Use Puma as the app server
@@ -53,6 +52,9 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  # Use sqlite3 for local development
+  gem 'sqlite3', '~> 1.3.13'
+  ruby ">=2.4.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
