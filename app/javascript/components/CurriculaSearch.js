@@ -58,7 +58,6 @@ class CurriculaSearch extends React.Component {
         }
         alert("Please select at least one checkbox. If no preference, select the select all checkbox.");
         event.preventDefault();
-        return false;
     }
     
     getCurriculaData() {
