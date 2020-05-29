@@ -77,13 +77,13 @@ class CurriculaSearch extends React.Component {
                     this.state.checkboxbools.push({
                         id: standard.id,
                         description: standard.id + ": " + standard.description,
-                        checked: false
+                        checked: true
                     })
                 })
                 this.state.checkboxbools.push({
                     id: "selectall",
                     description: "Select all of the above",
-                    checked: false
+                    checked: true
                 })
             }
         }
