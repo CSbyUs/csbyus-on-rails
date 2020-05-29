@@ -1,4 +1,4 @@
-import React from "react"
+﻿import React from "react"
 import PropTypes from "prop-types"
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -25,9 +25,12 @@ class CurriculumCard extends React.Component {
                 <b>{this.props.title}</b>
               </Typography>
               <Typography variant="subtitle1" className={this.props.title} className={classes.newFont} color="textSecondary" gutterBottom>
-                {this.props.author}
+                {this.props.standards}
               </Typography>
-              <Typography variant="subtitle1" component="p" className={classes.newFont} >
+              <Typography variant="subtitle1" className={this.props.title} className={classes.newFont} color="textSecondary" gutterBottom>
+                {this.props.time}
+              </Typography>
+              <Typography variant="body1" component="p" className={classes.newFont} >
                 {this.props.content}
               </Typography>
             </CardContent>
@@ -39,7 +42,8 @@ class CurriculumCard extends React.Component {
 }
 
 CurriculumCard.propTypes = {
-  author: PropTypes.string,
+  standards: PropTypes.string,
+  time: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
   content: PropTypes.string
