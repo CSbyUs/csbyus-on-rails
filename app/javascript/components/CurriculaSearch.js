@@ -59,9 +59,9 @@ class CurriculaSearch extends React.Component {
     }
     
     getCurriculaData() {
-        let age = this.props.match.params.age;
-        let topic = this.props.match.params.topic;
-        var standardsJsonArray = standardsData['standards']['gradeLevel'][age]['curriculum'][topic];
+        const age = this.props.match.params.age;
+        const topic = this.props.match.params.topic;
+        const standardsJsonArray = standardsData['standards']['gradeLevel'][age]['curriculum'][topic];
         return standardsJsonArray;
     };
 
