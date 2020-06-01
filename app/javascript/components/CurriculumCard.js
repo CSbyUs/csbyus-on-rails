@@ -17,7 +17,7 @@ class CurriculumCard extends React.Component {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <Card >
           <CardActionArea href={this.props.url}  target="_blank">
             <CardContent>
@@ -36,7 +36,7 @@ class CurriculumCard extends React.Component {
             </CardContent>
           </CardActionArea>
         </Card>
-      </React.Fragment>
+      </>
     );
   }
 }
