@@ -42,17 +42,18 @@ class CurriculaSearch extends React.Component {
 
     
     handleInputChange(event) {
-        for (const each of this.state.checkboxbools) {
-            if (each.id == event.target.value || event.target.value == "selectall") {
+        const updatedCheckboxArray = this.state.checkboxbools;
+        for (const each of updatedCheckboxArray) {
+            if (each.id == event.target.value || event.target.value == 'selectall') {
                 each.checked = event.target.checked;
             }
         }
-        this.setState({ checkboxbools: this.state.checkboxbools });
+        this.setState({ checkboxbools: updatedCheckboxArray });
     }
 
     handleOnClick(event) {
         const checkedBoxes = this.state.checkboxbools.filter(box => box.checked);
-        if (checkedBoxes.length === 0) {
+        if (checkedBoxes.length == 0) {
             alert("Please select at least one checkbox. If no preference, select the select all checkbox.");
             event.preventDefault();
         }
