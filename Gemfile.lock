@@ -96,6 +96,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -192,6 +193,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  pg
   puma (~> 3.7)
   rails (~> 5.1.4)
   react-rails
@@ -203,5 +205,8 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webpacker
 
+RUBY VERSION
+   ruby 2.6.3p62
+
 BUNDLED WITH
-   1.17.1
+   1.17.2
