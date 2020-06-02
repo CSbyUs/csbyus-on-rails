@@ -64,7 +64,7 @@ class LessonPlans extends React.Component {
     const { classes } = this.props;
     const data = this.getCourseData();
     const cards = data.map((card) =>
-        <CurriculumCard title = {card.title} author = {"Standard(s): " + card.standards}
+        <CurriculumCard title={card.title} standards={"Standard(s): " + card.standards} time={"Estimated time: " + card.estimatedTime + " minutes"}
             content={card.description} url={card.courseUrl}/>
           );
 
@@ -90,8 +90,8 @@ class LessonPlans extends React.Component {
 
               <Grid container spacing={24}>
                   {cards.map(card => (
-                    // change xs setting to 12 for one card per row
-                     <Grid item xs={12} sm={6} key={card.toString()}>
+                    // change xs setting to 12 and sm to 6 for multiple cards per row
+                     <Grid item xs={12} key={card.toString()}>
                          {card}
                      </Grid>
                    ))}

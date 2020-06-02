@@ -166,7 +166,7 @@ class IndividualBiosPage extends React.Component {
             study: "Duke Computer Science & Mathematics, 2021",
             caption:"I’d always been fascinated by computer science as a concept, but I never had the confidence to even take a CS course until college because it was (and continues to be) such a male-dominated field. Looking back, I wish so badly that I’d been exposed to CS sooner. I joined CSbyUs because I don’t want anyone to have barriers holding them back from exploring the field of tech, and early exposure is the best way to accomplish that goal.",
             email: "vivian.kirby@duke.edu",
-            myImage: "https://live.staticflickr.com/7896/46405637515_32d14f2525_z.jpg",
+            myImage: "https://live.staticflickr.com/7901/32378612597_ab9dceb352_z.jpg",
             emailurl: "mailto:vivian.kirby@duke.edu",
             linkedinurl: "https://www.linkedin.com/in/vivian-kirby-482b29127/"
           },{

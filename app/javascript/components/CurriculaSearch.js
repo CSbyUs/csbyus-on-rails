@@ -37,22 +37,32 @@ class CurriculaSearch extends React.Component {
             checkboxbools: []
         }
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleOnClick = this.handleOnClick.bind(this);
     }
 
     
     handleInputChange(event) {
-        for (const each of this.state.checkboxbools) {
-            if (each.id == event.target.value) {
+        const updatedCheckboxArray = this.state.checkboxbools;
+        for (const each of updatedCheckboxArray) {
+            if (each.id == event.target.value || event.target.value == 'selectall') {
                 each.checked = event.target.checked;
             }
         }
-        this.setState({ checkboxbools: this.state.checkboxbools });
+        this.setState({ checkboxbools: updatedCheckboxArray });
+    }
+
+    handleOnClick(event) {
+        const checkedBoxes = this.state.checkboxbools.filter(box => box.checked);
+        if (checkedBoxes.length == 0) {
+            alert("Please select at least one checkbox. If no preference, select the select all checkbox.");
+            event.preventDefault();
+        }
     }
     
     getCurriculaData() {
-        let age = this.props.match.params.age;
-        let topic = this.props.match.params.topic;
-        var standardsJsonArray = standardsData['standards']['gradeLevel'][age]['curriculum'][topic];
+        const age = this.props.match.params.age;
+        const topic = this.props.match.params.topic;
+        const standardsJsonArray = standardsData['standards']['gradeLevel'][age]['curriculum'][topic];
         return standardsJsonArray;
     };
 
@@ -65,9 +75,14 @@ class CurriculaSearch extends React.Component {
                 data.forEach((standard) => {
                     this.state.checkboxbools.push({
                         id: standard.id,
-                        description: standard.description,
-                        checked: false
+                        description: standard.id + ": " + standard.description,
+                        checked: true
                     })
+                })
+                this.state.checkboxbools.push({
+                    id: "selectall",
+                    description: "Select all of the above",
+                    checked: true
                 })
             }
         }
@@ -102,7 +117,7 @@ class CurriculaSearch extends React.Component {
                             {!empty && 
                                 this.state.checkboxbools.map((checkbox) =>
                                     <div>
-                                        <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.id + ": " + checkbox.description} />
+                                        <FormControlLabel control={<Checkbox value={checkbox.id} onChange={this.handleInputChange} checked={checkbox.checked} />} label={checkbox.description} />
                                     </div>
                                 )
                             }
@@ -115,8 +130,8 @@ class CurriculaSearch extends React.Component {
                                     state: {
                                         checkboxdata: this.state.checkboxbools
                                     }
-                                }}>
-                                    <Button variant="contained" color="secondary" className={classes.button}>
+                            }} onClick={this.handleOnClick}>
+                                <Button variant="contained" color="secondary" className={classes.button}>
                                         <SearchIcon />
                                         Search
                                 </Button>
