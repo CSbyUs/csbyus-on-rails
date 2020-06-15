@@ -1,6 +1,11 @@
 {
   "name": "react-rails-example-app",
   "private": true,
+  "scripts": {
+    "lint": "eslint app/**/*.js app/**/*.jsx",
+    "lint:fix": "eslint --fix app/**/*.js app/**/*.jsx",
+    "format": "prettier --write app/**/*.js app/**/*.jsx"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
     "@material-ui/core": "^3.5.1",
