@@ -1,4 +1,4 @@
-# CSbyUs site
+# CSbyUs website
 
 This project is based on React Front End and Ruby on Rails Backend. Check out the tech spec [here](https://docs.google.com/document/d/1OBht5ythEHgHP5wKkjB2SehQMyU9Y4HAZ2q8AV27oD4/edit?usp=sharing).
 
